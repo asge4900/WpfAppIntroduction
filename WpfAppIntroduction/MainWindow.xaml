@@ -37,17 +37,31 @@
                 Grid.Row="2"
                 Command="{Binding DelOpgave14Command}"
                 Content="Opgave 1.4" />
-        <Button x:Name="buttonOpg15" Grid.Row="3" Content="Opgave 1.5"></Button>
-        <Button x:Name="buttonOpg16" Grid.Row="4" Content="Opgave 1.6"></Button>
-        <Button x:Name="buttonOpg17" Grid.Row="5" Content="Opgave 1.7"></Button>
-        <Button x:Name="buttonOpg18" Grid.Row="6" Content="Opgave 1.8"></Button>
-        <Button x:Name="buttonOpg19" Grid.Row="7" Content="Opgave 1.9"></Button>
+        <Button x:Name="buttonOpg15" 
+                Grid.Row="3"
+                Command="{Binding DelOpgave15Command}"
+                Content="Opgave 1.5" />
+        <Button x:Name="buttonOpg16" 
+                Grid.Row="4"
+                Command="{Binding DelOpgave16Command}"
+                Content="Opgave 1.6" />
+        <Button x:Name="buttonOpg17" 
+                Grid.Row="5"
+                Command="{Binding DelOpgave17Command}"
+                Content="Opgave 1.7" />
+        <Button x:Name="buttonOpg18" 
+                Grid.Row="6" 
+                Content="Opgave 1.8" />
+        <Button x:Name="buttonOpg19" 
+                Grid.Row="7" 
+                Command="{Binding DelOpgave19Command}"
+                Content="Opgave 1.9" />
         <Button x:Name="buttonOpg20" Grid.Row="8" Content="Opgave 1.10"></Button>
 
         <ListBox Grid.Column="1" 
-                 Grid.RowSpan="9" 
+                 Grid.RowSpan="10" 
                  Margin="5">
-            <ListBoxItem Content="{Binding ListBox}" />
+            <ListBoxItem Content="{Binding ListBox}"/>
         </ListBox>
 
     </Grid>

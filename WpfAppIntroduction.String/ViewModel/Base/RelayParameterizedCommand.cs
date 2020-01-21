@@ -1,19 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace WpfAppIntroduction
+namespace WpfAppIntroduction.String
 {
     /// <summary>
     /// A basic command that runs an Action
     /// </summary>
-    public class RelayCommand : ICommand
+    public class RelayParameterizedCommand : ICommand
     {
         #region Private Members
 
         /// <summary>
         /// The action to run
         /// </summary>
-        private Action action;
+        private Action<object> mAction;
 
         #endregion
 
@@ -31,9 +35,9 @@ namespace WpfAppIntroduction
         /// <summary>
         /// Default constructor
         /// </summary>
-        public RelayCommand(Action action)
+        public RelayParameterizedCommand(Action<object> action)
         {
-            this.action = action;
+            mAction = action;
         }
 
         #endregion
@@ -56,7 +60,7 @@ namespace WpfAppIntroduction
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            action();
+            mAction(parameter);
         }
 
         #endregion
