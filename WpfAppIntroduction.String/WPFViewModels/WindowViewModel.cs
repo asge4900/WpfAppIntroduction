@@ -14,14 +14,17 @@ namespace WpfAppIntroduction.String
 
         public WindowViewModel()
         {
-
+            CountAllLinesCommand = new RelayCommand(CountAllLines);            
+            CountAllVowelsCommand = new RelayCommand(CountAllVowels);
         }
 
         #endregion
 
         #region Properties
 
+        public string TextBox { get; set; }
 
+        public string TextBox2 { get; set; }
 
         #endregion
 
@@ -29,24 +32,52 @@ namespace WpfAppIntroduction.String
         #region Commands
 
         public ICommand CountAllLinesCommand { get; set; }
-        
+
+        public ICommand CountAllVowelsCommand { get; set; }
+
         #endregion
 
 
         #region Methods
 
-        public int CountAllLines()
+        private string TextFile()
         {
-            var lineCount = 0;
-            using (var reader = File.OpenText(@"Admiralen.txt"))
-            {
-                while (reader.ReadLine() != null)
-                {
-                    lineCount++;
-                }
+            return "Hej";
+        }
+
+        private void CountAllLines()
+        {            
+
+            var lineCount = File.ReadLines(@"..\Admiralen.txt").Count(line => !line.All(char.IsWhiteSpace));            
+
+            using (var reader = File.OpenText(@"..\Admiralen.txt"))
+            { 
+                TextBox2 = reader.ReadToEnd();
             }
 
-            return lineCount;
+            TextBox = lineCount.ToString();            
+        }
+
+        private void CountAllVowels()
+        {
+            // Build a list of vowels up front:
+            var vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u', 'æ', 'ø' };
+
+            int total = 0;                          
+
+            using (var reader = File.OpenText(@"..\Admiralen.txt"))
+            {
+                string test = reader.ReadToEnd();
+
+                total = test.Count(c => vowels.Contains(c));
+            }
+
+            using (var reader = File.OpenText(@"..\Admiralen.txt"))
+            {
+                TextBox2 = reader.ReadToEnd();
+            }
+
+            TextBox = total.ToString();
         }
 
         #endregion

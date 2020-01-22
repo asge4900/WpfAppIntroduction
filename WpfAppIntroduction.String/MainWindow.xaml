@@ -30,16 +30,25 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBox Grid.ColumnSpan="2" Grid.RowSpan="9" />
+        <TextBox Grid.ColumnSpan="2" 
+                 Grid.RowSpan="9"
+                 Text="{Binding TextBox2}"
+                 />
         <TextBox Grid.Column="2" 
                  Grid.ColumnSpan="2"
                  Grid.RowSpan="9"
-                 />
+                 Text="{Binding TextBox}"                
+                 />       
 
-        <Button Grid.Row="9" Content="Opgave 1" />
+            <Button Grid.Row="9" 
+                Content="Opgave 1" 
+                Command="{Binding CountAllLinesCommand}"
+                />
         <Button Grid.Row="9" 
                 Grid.Column="1"  
-                Content="Opgave 2" />
+                Content="Opgave 2" 
+                Command="{Binding CountAllVowelsCommand}"
+                />
         <Button Grid.Row="9" 
                 Grid.Column="2" 
                 Content="Opgave 3" />
