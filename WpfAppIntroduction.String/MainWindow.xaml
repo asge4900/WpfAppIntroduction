@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppIntroduction.String"
         mc:Ignorable="d"
-        Title="Opgave 1 WPF – IntroduktionString" Height="750" Width="1200">
+        Title="Opgave 1 WPF – IntroduktionString" 
+        Height="750" 
+        Width="1200"
+        WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -32,12 +35,13 @@
 
         <TextBox Grid.ColumnSpan="2" 
                  Grid.RowSpan="9"
-                 Text="{Binding TextBox2}"
+                 Text="{Binding TextBoxMain}"
+                 AcceptsReturn="True"
                  />
         <TextBox Grid.Column="2" 
                  Grid.ColumnSpan="2"
                  Grid.RowSpan="9"
-                 Text="{Binding TextBox}"                
+                 Text="{Binding TextBoxResult}"                
                  />       
 
             <Button Grid.Row="9" 
@@ -51,14 +55,20 @@
                 />
         <Button Grid.Row="9" 
                 Grid.Column="2" 
-                Content="Opgave 3" />
+                Content="Opgave 3" 
+                Command="{Binding RemoveAllVowelsCommand}"
+                />
         <Button Grid.Row="9" 
                 Grid.Column="3" 
-                Content="Opgave 4" />
-        <Button Grid.Row="10" Content="Opgave 5" />
+                Content="Opgave 4" 
+                />
+        <Button Grid.Row="10" 
+                Content="Opgave 5" 
+                />
         <Button Grid.Row="10" 
                 Grid.Column="1" 
-                Content="Opgave 6" />
+                Content="Opgave 6" 
+                />
         <Button Grid.Row="10" 
                 Grid.Column="2"
                 Content="Opgave 7" />
@@ -66,7 +76,9 @@
                 Grid.Column="3" 
                 Content="Opgave 8" />
 
-        <TextBox Grid.Row="11" />
+        <TextBox Grid.Row="11" 
+                 Text="{Binding SearchText}"
+                 />
 
     </Grid>
 </Window>
